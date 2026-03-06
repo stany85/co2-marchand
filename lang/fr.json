@@ -1,0 +1,30 @@
+{
+  "CO2MERCHANT": {
+    "SheetTitle":       "Gestion du marchand",
+    "ShopTitle":        "Boutique",
+    "ShopOpen":         "Boutique ouverte",
+    "ShopClosed":       "Boutique fermée",
+    "NoCharSelected":   "Aucun personnage sélectionné",
+    "NotEnoughGold":    "Fonds insuffisants",
+    "BuySuccess":       "Achat réussi",
+    "SellSuccess":      "Vente réussie",
+    "ConfirmBuy":       "Confirmer l'achat",
+    "ConfirmSell":      "Confirmer la vente",
+    "TabBuy":           "Acheter",
+    "TabSell":          "Vendre",
+    "DragHint":         "Glissez des objets depuis le compendium",
+    "EmptyShop":        "La boutique est vide",
+    "EmptyInventory":   "Votre inventaire est vide",
+    "Markup":           "Majoration vente (%)",
+    "Buyback":          "Taux de rachat (%)",
+    "InfiniteStock":    "Stock infini",
+    "SaveSettings":     "Sauvegarder",
+    "SetMerchant":      "Créer marchand",
+    "ManageShop":       "Boutique",
+    "Currency": {
+      "GP": "PO",
+      "SP": "PA",
+      "CP": "PC"
+    }
+  }
+}

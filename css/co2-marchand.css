@@ -1,0 +1,542 @@
+/* ═══════════════════════════════════════════════════════════════
+   CO2-MERCHANT — Styles isolés sous .co2-marchand
+   Toutes les classes internes sont préfixées co2m- pour éviter
+   tout conflit avec les classes natives de Foundry VTT.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────── */
+/* FENÊTRE RACINE                                  */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand {
+  font-family: "Cinzel", "IM Fell English", serif;
+  background: url("../assets/parchemin.webp");
+  background-size: cover;
+  color: #2b2b2b;
+  border: 3px solid #c9a86a;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+}
+
+/* Form racine des deux apps — position:relative pour le tooltip absolu */
+.co2-marchand .co2m-layout {
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 8px;
+}
+
+/* ─────────────────────────────────────────────── */
+/* INPUTS — scoped pour ne pas toucher Foundry     */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-input,
+.co2-marchand input[type="number"].co2m-input,
+.co2-marchand input[type="text"].co2m-input {
+  background: #f4ecd8;
+  border: 2px solid #c9a86a;
+  padding: 4px;
+  border-radius: 4px;
+  font-family: "IM Fell English", serif;
+  width: 70px;
+  color: #2b2b2b;
+}
+
+.co2-marchand .co2m-input:focus {
+  outline: none;
+  border-color: #e3c98b;
+}
+
+/* ─────────────────────────────────────────────── */
+/* BOUTONS GÉNÉRAUX                                */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-btn {
+  background: #3b2f2f;
+  color: #f4ecd8;
+  border: 2px solid #c9a86a;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Cinzel", serif;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.co2-marchand .co2m-btn:hover {
+  background: #5a4646;
+  border-color: #e3c98b;
+}
+
+.co2-marchand .co2m-btn.status-active {
+  background: #3f6b3f;
+  border-color: #9ccf9c;
+}
+
+.co2-marchand .co2m-btn.status-inactive {
+  background: #8b2e2e;
+  border-color: #d89a9a;
+}
+
+/* ─────────────────────────────────────────────── */
+/* HEADER MARCHAND                                 */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-merchant-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #c9a86a;
+}
+
+.co2-marchand .co2m-merchant-avatar {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border: 3px solid #c9a86a;
+  border-radius: 6px;
+  background: #3b2f2f;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  flex-shrink: 0;
+}
+
+.co2-marchand .co2m-merchant-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.co2-marchand .co2m-merchant-name {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+  color: #2b2b2b;
+}
+
+.co2-marchand .co2m-merchant-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.co2-marchand .co2m-modifier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 2px solid #c9a86a;
+  font-size: 13px;
+  font-family: "Cinzel", serif;
+}
+
+.co2-marchand .co2m-modifier-badge.positive { background: #3f6b3f; color: #d4f7d4; }
+.co2-marchand .co2m-modifier-badge.negative { background: #8b2e2e; color: #f7d4d4; }
+.co2-marchand .co2m-modifier-badge.neutral  { background: #3b2f2f; color: #f4ecd8; }
+
+/* ─────────────────────────────────────────────── */
+/* PARAMÈTRES                                      */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-settings {
+  background: rgba(255,255,255,0.3);
+  border: 2px solid #c9a86a;
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+.co2-marchand .co2m-settings-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.co2-marchand .co2m-setting-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.co2-marchand .co2m-setting-label {
+  font-size: 13px;
+  white-space: nowrap;
+  color: #2b2b2b;
+}
+
+.co2-marchand .co2m-setting-unit {
+  font-size: 12px;
+  color: #5a4030;
+}
+
+.co2-marchand .co2m-settings-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ─────────────────────────────────────────────── */
+/* SECTION INVENTAIRE                              */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-inventory-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.co2-marchand .co2m-inventory-header {
+  margin-bottom: 4px;
+}
+
+.co2-marchand .co2m-inventory-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #2b2b2b;
+}
+
+.co2-marchand .co2m-inventory-body {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px;
+  min-height: 0;
+}
+
+/* ─────────────────────────────────────────────── */
+/* ICÔNES OBJETS                                   */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-item-icon {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #c9a86a;
+  border-radius: 4px;
+  object-fit: cover;
+  display: block;
+}
+
+.co2-marchand .co2m-item-icon.co2m-info-trigger {
+  cursor: help;
+}
+
+/* ─────────────────────────────────────────────── */
+/* TABLES INVENTAIRE                               */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.6);
+  border: 2px solid #c9a86a;
+  font-size: 13px;
+}
+
+.co2-marchand .co2m-table th,
+.co2-marchand .co2m-table td {
+  border: 1px solid #c9a86a;
+  padding: 5px 6px;
+  vertical-align: middle;
+}
+
+.co2-marchand .co2m-table th {
+  background: #e8d8b0;
+  font-family: "Cinzel", serif;
+  color: #3b2f2f;
+  font-size: 12px;
+}
+
+.co2-marchand .co2m-table tr:nth-child(even) {
+  background: rgba(255,255,255,0.4);
+}
+
+.co2-marchand .co2m-item-actions {
+  display: flex;
+  gap: 4px;
+  justify-content: center;
+}
+
+.co2-marchand .co2m-item-actions .co2m-btn {
+  padding: 3px 5px;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.co2-marchand .co2m-has-override {
+  font-style: italic;
+  color: #5a3e8e;
+}
+
+/* ─────────────────────────────────────────────── */
+/* GROUPES PAR SUBTYPE — COLLAPSE                  */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-group {
+  margin-bottom: 8px;
+}
+
+.co2-marchand .co2m-group-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #3b2f2f;
+  color: #f4ecd8;
+  padding: 5px 10px;
+  border: 2px solid #c9a86a;
+  border-radius: 4px 4px 0 0;
+  font-family: "Cinzel", serif;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.co2-marchand .co2m-group-header:hover {
+  background: #5a4646;
+}
+
+.co2-marchand .co2m-group.is-collapsed .co2m-group-header {
+  border-radius: 4px;
+}
+
+.co2-marchand .co2m-group-chevron {
+  font-size: 11px;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.co2-marchand .co2m-group-label {
+  font-weight: bold;
+  flex: 1;
+}
+
+.co2-marchand .co2m-group-count {
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+.co2-marchand .co2m-group-body {
+  overflow: hidden;
+}
+
+.co2-marchand .co2m-group-body .co2m-table {
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+}
+
+/* ─────────────────────────────────────────────── */
+/* DRAG & DROP                                     */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-inventory-body.drag-over {
+  outline: 3px dashed #c9a86a;
+  outline-offset: -4px;
+  background: rgba(201, 168, 106, 0.12);
+  border-radius: 4px;
+}
+
+/* ─────────────────────────────────────────────── */
+/* HEADER BOUTIQUE JOUEUR                          */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-shop-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 8px;
+  border-bottom: 3px solid #c9a86a;
+}
+
+.co2-marchand .co2m-shop-title {
+  margin: 0;
+  font-size: 20px;
+  color: #2b2b2b;
+  text-shadow: 1px 1px 0 #e8d8b0;
+}
+
+.co2-marchand .co2m-merchant-purse {
+  display: flex;
+  gap: 8px;
+  font-size: 14px;
+  align-items: center;
+  color: #2b2b2b;
+}
+
+.co2-marchand .co2m-shop-modifier {
+  font-size: 13px;
+  color: #3b2f2f;
+  background: rgba(255,255,255,0.5);
+  padding: 3px 8px;
+  border: 2px solid #c9a86a;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+/* ─────────────────────────────────────────────── */
+/* ONGLETS ACHAT / VENTE                           */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.co2-marchand .co2m-tab {
+  flex: 1;
+  background: #3b2f2f;
+  color: #f4ecd8;
+  border: 2px solid #c9a86a;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  transition: background 0.2s;
+}
+
+.co2-marchand .co2m-tab:hover {
+  background: #5a4646;
+}
+
+.co2-marchand .co2m-tab.active {
+  background: #5a4646;
+  border-color: #e3c98b;
+}
+
+/* ─────────────────────────────────────────────── */
+/* RICHESSE JOUEUR                                 */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-player-wealth {
+  background: rgba(255,255,255,0.55);
+  border: 2px solid #c9a86a;
+  border-radius: 6px;
+  padding: 6px 10px;
+}
+
+.co2-marchand .co2m-player-wealth h3 {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+}
+
+.co2-marchand .co2m-wealth-values {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.co2-marchand .co2m-wealth-total {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+/* ─────────────────────────────────────────────── */
+/* SECTION BOUTIQUE (onglet)                       */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-shop-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: rgba(255,255,255,0.35);
+  border: 2px solid #c9a86a;
+  border-radius: 6px;
+  padding: 8px 10px;
+}
+
+.co2-marchand .co2m-shop-section h3 {
+  margin: 0 0 6px 0;
+  font-size: 15px;
+}
+
+.co2-marchand .co2m-shop-table-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+/* ─────────────────────────────────────────────── */
+/* BOUTONS ACHAT / VENTE                           */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-btn-buy,
+.co2-marchand .co2m-btn-sell {
+  background: #3b2f2f;
+  color: #f4ecd8;
+  border: 2px solid #c9a86a;
+  padding: 3px 5px;
+  border-radius: 4px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.co2-marchand .co2m-btn-buy:hover,
+.co2-marchand .co2m-btn-sell:hover {
+  background: #5a4646;
+  border-color: #e3c98b;
+}
+
+/* ─────────────────────────────────────────────── */
+/* MESSAGES VIDES                                  */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-empty {
+  text-align: center;
+  padding: 16px;
+  color: #6b5a3e;
+  font-style: italic;
+}
+
+/* ─────────────────────────────────────────────── */
+/* TOOLTIP DESCRIPTION OBJET                       */
+/* ─────────────────────────────────────────────── */
+
+.co2-marchand .co2m-tooltip {
+  position: absolute;
+  z-index: 9999;
+  max-width: 320px;
+  min-width: 180px;
+  background: #2b1f0f;
+  border: 2px solid #c9a86a;
+  border-radius: 6px;
+  padding: 10px 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.7);
+  pointer-events: none;
+  font-family: "IM Fell English", serif;
+  font-size: 13px;
+  color: #f4ecd8;
+  line-height: 1.5;
+}
+
+.co2-marchand .co2m-tooltip .co2m-tooltip-title {
+  font-family: "Cinzel", serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #e3c98b;
+  border-bottom: 1px solid #c9a86a;
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+}
+
+.co2-marchand .co2m-tooltip .co2m-tooltip-desc p {
+  margin: 4px 0 0 0;
+  color: #f0e6d2;
+}
+
+/* HUD Token */
+.co2-marchand-hud.inactive {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

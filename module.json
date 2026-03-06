@@ -1,0 +1,39 @@
+{
+  "id": "co2-marchand",
+  "title": "CO2 Marchand — Marchand pour CO2",
+  "description": "Ajoute un système de marchand interactif compatible avec le système CO2. Le MJ configure l'inventaire et les prix, les joueurs peuvent acheter et vendre des objets.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+      "authors": [
+        {
+            "name": "Stany"
+        }],
+  "relationships": {
+    "systems": [
+      {
+        "id": "co2",
+        "type": "system",
+        "compatibility": {
+          "minimum": "1.5"
+        }
+      }
+    ]
+  },
+  "esmodules": [
+    "co2-marchand.mjs"
+  ],
+  "styles": [
+    "css/co2-marchand.css"
+  ],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    }
+  ],
+  "socket": true
+}

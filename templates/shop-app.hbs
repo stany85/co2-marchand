@@ -1,0 +1,175 @@
+<form class="co2m-layout" autocomplete="off">
+
+  {{!-- HEADER BOUTIQUE --}}
+  <header class="co2m-shop-header">
+    <h2 class="co2m-shop-title">
+      <i class="fas fa-store"></i> Boutique — {{merchantActor.name}}
+    </h2>
+
+    {{#if showPurse}}
+    <div class="co2m-merchant-purse">
+      <i class="fas fa-coins"></i>
+      <span>{{merchantPurse.gp}} PO</span>
+      <span>{{merchantPurse.sp}} PA</span>
+      <span>{{merchantPurse.cp}} PC</span>
+    </div>
+    {{/if}}
+
+    {{#if modifierLabel}}
+    <div class="co2m-shop-modifier">
+      <i class="fas fa-percent"></i> {{modifierLabel}}
+    </div>
+    {{/if}}
+  </header>
+
+  {{!-- ONGLETS --}}
+  <nav class="co2m-tabs">
+    <button type="button"
+            class="co2m-tab {{#if (eq activeTab 'buy')}}active{{/if}}"
+            data-action="switchTab" data-tab="buy">
+      <i class="fas fa-shopping-basket"></i> Acheter
+    </button>
+    <button type="button"
+            class="co2m-tab {{#if (eq activeTab 'sell')}}active{{/if}}"
+            data-action="switchTab" data-tab="sell">
+      <i class="fas fa-coins"></i> Vendre
+    </button>
+  </nav>
+
+  {{!-- RICHESSE JOUEUR --}}
+  {{#if playerWealth}}
+  <section class="co2m-player-wealth">
+    <h3><i class="fas fa-wallet"></i> Votre richesse</h3>
+    <div class="co2m-wealth-values">
+      <span><strong>{{playerWealth.gp}}</strong> PO</span>
+      <span><strong>{{playerWealth.sp}}</strong> PA</span>
+      <span><strong>{{playerWealth.cp}}</strong> PC</span>
+      <span class="co2m-wealth-total">Total : {{playerWealth.str}}</span>
+    </div>
+  </section>
+  {{/if}}
+
+  {{!-- ONGLET ACHAT --}}
+  {{#if (eq activeTab "buy")}}
+  <section class="co2m-shop-section">
+    <h3><i class="fas fa-shopping-basket"></i> Objets en vente</h3>
+
+    {{#if shopGroups}}
+    <div class="co2m-shop-table-wrapper">
+      {{#each shopGroups}}
+      <div class="co2m-group" data-subtype="{{subtype}}">
+
+        <div class="co2m-group-header co2m-group-toggle" data-group="{{subtype}}">
+          <i class="fas fa-chevron-down co2m-group-chevron"></i>
+          <i class="fas {{icon}}"></i>
+          <span class="co2m-group-label">{{label}}</span>
+          <span class="co2m-group-count">({{items.length}})</span>
+        </div>
+
+        <div class="co2m-group-body">
+          <table class="co2m-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Objet</th>
+                <th>Qté</th>
+                <th>Prix</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each items}}
+              <tr data-item-id="{{id}}" data-cost-cp="{{sellPriceCP}}">
+                <td>
+                  <img src="{{img}}" class="co2m-item-icon co2m-info-trigger"
+                       data-item-name="{{name}}"
+                       data-item-description="{{description}}">
+                </td>
+                <td>{{name}}</td>
+                <td>{{quantity}}</td>
+                <td>{{sellPriceStr}}</td>
+                <td>
+                  <button type="button" data-action="buyItem" class="co2m-btn-buy" title="Acheter">
+                    <i class="fas fa-cart-plus"></i>
+                  </button>
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      {{/each}}
+    </div>
+    {{else}}
+    <p class="co2m-empty"><i class="fas fa-box-open"></i> La boutique est vide.</p>
+    {{/if}}
+  </section>
+  {{/if}}
+
+  {{!-- ONGLET VENTE --}}
+  {{#if (eq activeTab "sell")}}
+  <section class="co2m-shop-section">
+    <h3><i class="fas fa-coins"></i> Votre inventaire</h3>
+
+    {{#if playerGroups}}
+    <div class="co2m-shop-table-wrapper">
+      {{#each playerGroups}}
+      <div class="co2m-group" data-subtype="{{subtype}}">
+
+        <div class="co2m-group-header co2m-group-toggle" data-group="{{subtype}}">
+          <i class="fas fa-chevron-down co2m-group-chevron"></i>
+          <i class="fas {{icon}}"></i>
+          <span class="co2m-group-label">{{label}}</span>
+          <span class="co2m-group-count">({{items.length}})</span>
+        </div>
+
+        <div class="co2m-group-body">
+          <table class="co2m-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Objet</th>
+                <th>Qté</th>
+                <th>Valeur</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each items}}
+              <tr data-item-id="{{id}}" data-gain-cp="{{buybackPriceCP}}">
+                <td>
+                  <img src="{{img}}" class="co2m-item-icon co2m-info-trigger"
+                       data-item-name="{{name}}"
+                       data-item-description="{{description}}">
+                </td>
+                <td>{{name}}</td>
+                <td>{{quantity}}</td>
+                <td>{{buybackPriceStr}}</td>
+                <td>
+                  {{#if hasValue}}
+                  <button type="button" data-action="sellItem" class="co2m-btn-sell" title="Vendre">
+                    <i class="fas fa-hand-holding-usd"></i>
+                  </button>
+                  {{/if}}
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      {{/each}}
+    </div>
+    {{else}}
+    <p class="co2m-empty"><i class="fas fa-box-open"></i> Votre inventaire est vide.</p>
+    {{/if}}
+  </section>
+  {{/if}}
+
+  {{!-- Tooltip (inside form = single root element) --}}
+  <div class="co2m-tooltip" style="display:none;"></div>
+
+</form>
