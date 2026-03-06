@@ -2,7 +2,7 @@
 
 Module **Foundry VTT v13+** compatible avec le système **co2** (Chroniques Oubliées 2, Black Book Éditions).
 
-> Version `2.2.0` — ApplicationV2 · Socket · Drag & Drop · Groupes par sous-type
+> Version `1.1.0` — ApplicationV2 · Socket · Drag & Drop · Groupes par sous-type
 
 ---
 
